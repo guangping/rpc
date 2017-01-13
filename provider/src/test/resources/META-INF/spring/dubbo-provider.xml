@@ -13,7 +13,7 @@
     <dubbo:monitor protocol="registry"/>
     <dubbo:provider
             serialization="kryo" codec="dubbo" server="netty" client="netty" threadpool="cached"
-            connections="1" loadbalance="consistenthash" cluster="failfast" delay="-1" timeout="5000" />
+            connections="1" cluster="failfast" delay="-1" timeout="5000" />
 
 
     <dubbo:service interface="com.varela.rpc.service.UserService" ref="userService"/>
