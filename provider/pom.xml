@@ -26,29 +26,31 @@
     </dependencies>
 
     <build>
-        <finalName>api</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>dev/*</exclude>
-                    <exclude>prd/*</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources/${profiles.active}</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
+        <finalName>api-service</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>make-binary-pacakge</id>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <appendAssemblyId>false</appendAssemblyId>
+                             <finalName>${project.build.finalName}</finalName>
+                            <descriptors>
+                                <descriptor>src/main/resources/assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
     </build>
 
     <profiles>
@@ -58,13 +60,10 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <profiles.active>dev</profiles.active>
-            </properties>
-        </profile>
-        <profile>
-            <id>prd</id>
-            <properties>
-                <profiles.active>prd</profiles.active>
+                <dubbo.protocol.port>20110</dubbo.protocol.port>
+                <dubbo.application.name>lance</dubbo.application.name>
+                <dubbo.registry.address>zookeeper://127.0.0.1:2181</dubbo.registry.address>
+                <dubbo.registry.protocol>zookeeper</dubbo.registry.protocol>
             </properties>
         </profile>
     </profiles>
