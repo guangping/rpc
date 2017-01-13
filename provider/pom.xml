@@ -60,8 +60,8 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <dubbo.protocol.port>20110</dubbo.protocol.port>
                 <dubbo.application.name>lance</dubbo.application.name>
+                <dubbo.protocol.port>20110</dubbo.protocol.port>
                 <dubbo.registry.address>zookeeper://127.0.0.1:2181</dubbo.registry.address>
                 <dubbo.registry.protocol>zookeeper</dubbo.registry.protocol>
             </properties>
