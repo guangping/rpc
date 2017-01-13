@@ -37,19 +37,35 @@
         </resources>
         <plugins>
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.4</version>
+                <configuration>
+                    <timestampFormat>yyyyMMdd</timestampFormat>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>create-timestamp</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <inherited>false</inherited>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.0.0</version>
                 <executions>
                     <execution>
                         <id>make-binary-pacakge</id>
+                        <phase>package</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
-                        <phase>package</phase>
                         <configuration>
                             <appendAssemblyId>false</appendAssemblyId>
-                             <finalName>${project.build.finalName}</finalName>
+                            <finalName>${project.build.finalName}-${project.version}-${timestamp}</finalName>
                             <descriptors>
                                 <descriptor>src/main/resources/assembly.xml</descriptor>
                             </descriptors>
