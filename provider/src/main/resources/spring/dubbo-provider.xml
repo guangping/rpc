@@ -8,7 +8,7 @@
     <dubbo:provider filter="Authentication,OperationLog"></dubbo:provider>
     -->
     <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" file="/home/dubbo/sns_service_v3.cache" />
-    <dubbo:protocol name="${dubbo.protocol.name}" serialization="kryo" port="${dubbo.protocol.port}"/>
+    <dubbo:protocol name="${dubbo.protocol.name}" dispatcher="all" threadpool="fixed" threads="100" serialization="kryo" port="${dubbo.protocol.port}"/>
 
     <dubbo:monitor protocol="registry"/>
     <dubbo:provider
