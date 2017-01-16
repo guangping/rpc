@@ -34,6 +34,14 @@
             </includes>
             <filtered>true</filtered>
         </fileSet>
+        <fileSet>
+            <directory>src/main/resources/dubbo</directory>
+            <outputDirectory>conf/META-INF/dubbo</outputDirectory>
+            <includes>
+                <include>*.*</include>
+            </includes>
+            <filtered>true</filtered>
+        </fileSet>
     </fileSets>
 
     <dependencySets>

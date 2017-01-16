@@ -11,7 +11,7 @@
     <dubbo:protocol name="${dubbo.protocol.name}" serialization="kryo" port="${dubbo.protocol.port}"/>
 
     <dubbo:monitor protocol="registry"/>
-    <dubbo:provider
+    <dubbo:provider filter="AuthorityFilter"
             serialization="kryo" codec="dubbo" server="netty" client="netty" threadpool="cached"
             connections="1" cluster="failfast" delay="-1" timeout="5000" />
 

@@ -15,6 +15,6 @@
     <!-- 属性文件读入 -->
     <context:property-placeholder location="classpath:config/*.properties"/>
 
-    <import resource="classpath*:spring/dubbo-consumer.xml"/>
+    <import resource="classpath:spring/dubbo-consumer.xml"/>
 
 </beans>

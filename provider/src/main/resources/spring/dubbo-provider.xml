@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.4.2.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="${dubbo.application.name}" owner="lance" organization="com.varela"/>
     <!--
@@ -11,7 +11,7 @@
     <dubbo:protocol name="${dubbo.protocol.name}" dispatcher="all" threadpool="fixed" threads="100" serialization="kryo" port="${dubbo.protocol.port}"/>
 
     <dubbo:monitor protocol="registry"/>
-    <dubbo:provider
+    <dubbo:provider filter="AuthorityFilter"
             serialization="kryo" codec="dubbo" server="netty" client="netty" threadpool="cached"
             connections="1" cluster="failfast" delay="-1" timeout="5000" />
 

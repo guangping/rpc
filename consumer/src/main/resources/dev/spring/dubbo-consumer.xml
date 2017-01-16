@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<dubbo:application name="${dubbo.application.name}" owner="lance" organization="com.varela"/>
@@ -13,6 +13,8 @@
 
     <dubbo:consumer timeout="${dubbo.timeout}"/>
 
-    <dubbo:reference id="userService" interface="com.varela.rpc.service.UserService" url="${dubbo.direct.url}"/>
+    <dubbo:reference id="userService" interface="com.varela.rpc.service.UserService" url="${dubbo.direct.url}">
+        <dubbo:method name="queryUserById" async="true"/>
+    </dubbo:reference>
 
 </beans>
