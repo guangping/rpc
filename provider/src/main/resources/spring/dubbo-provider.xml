@@ -10,11 +10,11 @@
     <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}"
                     file="/home/dubbo/sns_service_v3.cache"/>
     <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}" client="netty"
-                    server="netty" threadpool="fixed" threads="100" serialization="kryo" accepts="1024" charset="UTF-8"/>
+                    server="netty" threadpool="fixed" threads="100" serialization="kryo" accepts="10240" charset="UTF-8"/>
 
     <dubbo:monitor protocol="registry"/>
     <dubbo:provider filter="AuthorityFilter" serialization="kryo" timeout="5000"/>
 
 
-    <dubbo:service interface="com.varela.rpc.service.UserService" ref="userService"/>
+    <dubbo:service interface="com.varela.rpc.service.UserService" ref="userService" actives="10"/>
 </beans>
