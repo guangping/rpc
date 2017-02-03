@@ -11,7 +11,7 @@
 
     <dubbo:monitor protocol="registry"/>
 
-    <dubbo:consumer timeout="${dubbo.timeout}"/>
+    <dubbo:consumer timeout="${dubbo.timeout}" retries="0"/>
 
     <dubbo:reference id="userService" interface="com.varela.rpc.service.UserService" url="${dubbo.direct.url}">
         <dubbo:method name="queryUserById" async="true"/>
