@@ -12,9 +12,9 @@
     <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}" client="netty"
                     server="netty" threadpool="fixed" threads="100" serialization="kryo" accepts="10240" charset="UTF-8"/>
 
-    <dubbo:monitor protocol="registry"/>
+  <!--  <dubbo:monitor protocol="registry"/>-->
     <dubbo:provider filter="AuthorityFilter" serialization="kryo" timeout="${dubbo.timeout}" delay="-1" retries="0"/>
 
 
-    <dubbo:service interface="com.varela.rpc.service.UserService" ref="userService" actives="10"/>
+    <dubbo:service interface="com.varela.rpc.service.UserService" ref="userService" actives="10" version="1.0.0"/>
 </beans>

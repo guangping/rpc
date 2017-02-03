@@ -9,11 +9,11 @@
 
     <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" file="/home/dubbo/sns_web_v3.cache"/>
 
-    <dubbo:monitor protocol="registry"/>
+<!--    <dubbo:monitor protocol="registry"/>-->
 
-    <dubbo:consumer timeout="${dubbo.timeout}" retries="0"/>
+    <dubbo:consumer check="true" timeout="${dubbo.timeout}" retries="0"/>
 
-    <dubbo:reference id="userService" interface="com.varela.rpc.service.UserService" url="${dubbo.direct.url}">
+    <dubbo:reference id="userService" interface="com.varela.rpc.service.UserService" url="${dubbo.direct.url}" version="1.0.0">
         <dubbo:method name="queryUserById" async="true"/>
     </dubbo:reference>
 
