@@ -9,7 +9,7 @@
 
     <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" file="/home/dubbo/sns_web_v3.cache"/>
 
-<!--    <dubbo:monitor protocol="registry"/>-->
+    <dubbo:monitor protocol="registry"/>
 
     <dubbo:consumer check="true" timeout="${dubbo.timeout}" retries="0"/>
 
