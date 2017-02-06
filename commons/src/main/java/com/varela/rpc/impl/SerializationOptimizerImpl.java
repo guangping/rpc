@@ -1,7 +1,7 @@
 package com.varela.rpc.impl;
 
 import com.alibaba.dubbo.common.serialize.support.SerializationOptimizer;
-import com.beust.jcommander.internal.Lists;
+import com.google.common.collect.Lists;
 
 import java.util.Collection;
 import java.util.List;

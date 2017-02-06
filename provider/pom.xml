@@ -88,6 +88,7 @@
                 <dubbo.protocol.port>20110</dubbo.protocol.port>
                 <dubbo.registry.address>zookeeper://127.0.0.1:2181</dubbo.registry.address>
                 <dubbo.registry.protocol>zookeeper</dubbo.registry.protocol>
+                <dubbo.registry.file>/home/dubbo/sns_service_v3.cache</dubbo.registry.file>
                 <dubbo.timeout>5000</dubbo.timeout>
             </properties>
         </profile>
