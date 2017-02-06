@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="${dubbo.application.name}" owner="lance" organization="com.varela"/>
     <!--
@@ -10,7 +14,7 @@
     <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}"
                     file="/home/dubbo/sns_service_v3.cache"/>
     <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}" client="netty"
-                    server="netty" threadpool="fixed" threads="100" serialization="kryo" accepts="10240" charset="UTF-8"/>
+                    server="netty" threadpool="fixed" threads="100" serialization="kryo" accepts="10240" optimizer="com.varela.rpc.impl.SerializationOptimizerImpl" charset="UTF-8"/>
 
     <dubbo:monitor protocol="registry"/>
     <dubbo:provider filter="AuthorityFilter" serialization="kryo" timeout="${dubbo.timeout}" delay="-1" retries="0"/>
